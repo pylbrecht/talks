@@ -312,7 +312,7 @@ a9c4c48 Fix bug
 <div class="fragment">
 ﰬ  
 
-```text[1-2|2-12]
+```text[]
 26550fe (HEAD -> master) Fix bug
 73a2261 Refactor applying the boyscout rule
    |
@@ -410,6 +410,9 @@ pick 139e19d Fix failing tests
 ```
 </span>
 
+Note:
+First action: reording commits
+
 ---
 
 <div style="font-size: smaller;">
@@ -451,12 +454,82 @@ $ git rebase -i HEAD~6
 <span style="font-size: smaller;">
 ﰬ  
 
+```bash[1-5]
+pick 535e5b7 Rename variable
+pick 443d809 Move class into separate module
+pick ce52b63 Inline function
+pick b5a0f1a Extract method
+pick 139e19d Fix failing tests
+pick a9c4c48 Fix bug
+
+# Commands:
+# p, pick <commit> = use commit
+# r, reword <commit> = use commit, but edit the commit message
+# e, edit <commit> = use commit, but stop for amending
+# s, squash <commit> = use commit, but meld into previous commit
+# d, drop <commit> = remove commit
+# ...
+```
+</span>
+
+Note:
+1. First we do a `git rebase -i` and specify how many commits we want to edit.
+	 In this case we go back 6 commits from the current HEAD.
+2. This will drop you in your configured editor showing a list of commits
+
+---
+
+<div style="font-size: smaller;">
+
+```
+$ git rebase -i HEAD~6
+```
+</div>
+
+<span style="font-size: smaller;">
+ﰬ  
+
 ```bash[2-5]
 pick 535e5b7 Rename variable
 pick 443d809 Move class into separate module
 pick ce52b63 Inline function
 pick b5a0f1a Extract method
 pick 139e19d Fix failing tests
+pick a9c4c48 Fix bug
+
+# Commands:
+# p, pick <commit> = use commit
+# r, reword <commit> = use commit, but edit the commit message
+# e, edit <commit> = use commit, but stop for amending
+# s, squash <commit> = use commit, but meld into previous commit
+# d, drop <commit> = remove commit
+# ...
+```
+</span>
+
+Note:
+1. First we do a `git rebase -i` and specify how many commits we want to edit.
+	 In this case we go back 6 commits from the current HEAD.
+2. This will drop you in your configured editor showing a list of commits
+
+---
+
+<div style="font-size: smaller;">
+
+```
+$ git rebase -i HEAD~6
+```
+</div>
+
+<span style="font-size: smaller;">
+ﰬ  
+
+```bash[2-5]
+pick 535e5b7 Rename variable
+squash 443d809 Move class into separate module
+squash ce52b63 Inline function
+squash b5a0f1a Extract method
+squash 139e19d Fix failing tests
 pick a9c4c48 Fix bug
 
 # Commands:
