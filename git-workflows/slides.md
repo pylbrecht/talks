@@ -16,25 +16,10 @@ history.
 
 ---
 
-## context!
-
-Note:
-To provide context!
-
-Where do we want to provide context?
-
----
-
 ![pseudo reviews](img/pseudo-reviews.jpg)
-
-<div class="fragment">
-"pseudo reviews"
-</div>
 
 Note:
 code reviews
-
-**PAUSE (drink)**
 
 Who has not done this, right?  
 - It's the end of the day
@@ -48,11 +33,9 @@ Who has not done this, right?
 - So you give it the thumbs up and finally call it a day
 - Two hours later production is burning.
 
-This is what I call a *pseudo review*. **SLIDE**
+This is what I call a *pseudo review*.
 You looked at the changes, but you did not really try to properly understand
 what's going on.
-
-**NEXT SLIDE**
 
 ---
 
