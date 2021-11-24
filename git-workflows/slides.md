@@ -144,7 +144,20 @@ But what if a commit should span different parts of multiple files?
 
 That brings me to the first technique.
 
-**NEXT SLIDE**
+
+---
+
+<div class="r-stack">
+
+<img class="fragment" width="700" src="img/gapa-1.png">
+
+<img class="fragment" width="700" src="img/gapa-2.png">
+
+<img class="fragment" width="700" src="img/gapa-3.png">
+
+<img class="fragment" width="700" src="img/gapa-4.png">
+
+</div>
 
 ---
 
