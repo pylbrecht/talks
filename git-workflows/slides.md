@@ -240,10 +240,6 @@ In general I found this really improved my ability to break down larger things i
 
 ---
 
-![can do](img/can-do.png)
-
----
-
 ## Interactive rebasing
 *git rebase --interactive*
 
