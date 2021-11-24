@@ -1,3 +1,9 @@
+---
+title: Git workflows
+revealOptions:
+  transition: none
+---
+
 <img style='float: right;' src='img/xkcd.png'>
 
 # Git workflows
