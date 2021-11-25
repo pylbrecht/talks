@@ -237,6 +237,25 @@ Among other options, you can for example say:
 	 your editor of choice!
 
 ---
+
+## Workflow recap
+<div class="r-stack">
+<span class="fragment">Commit early, commit often.</span><br>
+<span class="fragment" style="text-decoration: line-through;">Commit early, commit often.</span>
+</div>
+
+1. Hack out code like crazy!
+<!-- .element: class="fragment" -->
+2. Decide about commit boundaries in retrospect
+<!-- .element: class="fragment" -->
+3. Create commits with
+<!-- .element: class="fragment" -->
+```text
+$ git add --patch
+```
+	 
+---
+
 ## Shaping commit history
 
 <span class="fragment">*before* committing <span style="color: lightgreen;">✔️</span></span>  
