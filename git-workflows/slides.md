@@ -253,28 +253,32 @@ Among other options, you can for example say:
 ```text
 $ git add --patch
 ```
-	 
+
 ---
 
-## Shaping commit history
+<h2 class="fragment" data-fragment-index="2">Commit clutter</h2>
 
-<span class="fragment">*before* committing <span style="color: lightgreen;">✔️</span></span>  
+<div class="r-stack">
 
-<span class="fragment">*after* committing <span style="color: yellow;">**?**</span></span>
+```text
+fd8c33b Encapsulate variable
+ce52b63 Introduce parameter object
+443d809 Replace conditional with polymorphism
+d397f74 Extract interface
+92335de Reword log message
+a45ea80 Inline function
+62c3ac3 Rename class
+da9adf3 Move function to module level
+69d0584 Rename method argument
+2f09c99 Fix failing tests
+d28ba13 Fix bug
+b4a6748 Extract method
+36962d4 Rename variable
+```
+<!-- .element: class="fragment" data-fragment-index="1" -->
 
-Note:
-Now we know a technique for shaping our commit history *before* committing.
-What if we already have a bunch of commits and want to reorganize them?
-Maybe editting, reordering or deleting certain commits?
-Luckily git also provides a way to do that!
-
-
-TODO: move this to the end of the talk into a general recap
-Why is interactive hunk staging awesome?
-Because you can do it *after* you wrote your code!
-
-Doing this for a while will teach you how to lay out your commits *while* you're working or even *before* you start writing code.
-In general I found this really improved my ability to break down larger things into smaller ones.
+<span class="fragment" data-fragment-index="2" style="font-size: 120px;">🤔</span>
+</div>
 
 ---
 
