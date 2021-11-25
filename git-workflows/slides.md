@@ -139,15 +139,17 @@ Note:
 At this point, how can we create meaningful, isolated commits with well defined
 boundaries? 
 
-Instead of staging all changes, we could stage single files.  
-But what if a commit should span different parts of multiple files?
-
-That brings me to the first technique.
-
-
 ---
 
 <div class="r-stack">
+
+<img width="700" src="img/gapa-1.png">
+
+<img class="fragment" width="700" src="img/ga-1.png">
+
+<img class="fragment" width="700" src="img/ga-2.png">
+
+<img class="fragment" width="700" src="img/ga-3.png">
 
 <img class="fragment" width="700" src="img/gapa-1.png">
 
@@ -158,6 +160,11 @@ That brings me to the first technique.
 <img class="fragment" width="700" src="img/gapa-4.png">
 
 </div>
+
+Notes:
+- Let's say we have four files.
+- Instead of staging all changes, we could stage single files.  
+- But what if a commit should span different parts of multiple files?
 
 ---
 
