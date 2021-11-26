@@ -9,75 +9,49 @@ revealOptions:
 # Git workflows
 *..for shaping your commit history*
 
-Note:
-Hi guys and welcome to my talk.
-Today I want to show you two techniques you can use to shape your commit
-history.
+<br>
+<span style="font-size: smaller;">
+Philipp Albrecht<br>
+</span>
 
-**NEXT SLIDE**
+Note:
+Hi guys and welcome to my talk!  
+My name is Philipp and today I want to show you two techniques for shaping your
+git commit history.
+
+- I use these techniques very extensively
+- They buy me a lot of flexibility and made my workflow more efficient
+
+So let's dive right in!
 
 ---
 
-## But why shape your commit history?
+## Why shape your commit history?  
+
+Note:
+
+- Why do we want to shape our commit history?  
+- What is the benefit of a well shaped commit history?
 
 ---
 
-![pseudo reviews](img/pseudo-reviews.jpg)
+## Commit history = context
 
 Note:
-code reviews
-
-Who has not done this, right?  
-- It's the end of the day
-- Philipp asks you "Can you please have a look at my changes before you leave?
-	It's super important. We have to merge this today!"
-- you say "Of course! I will have a look."
-- you open the diff
-- and BAM, 700 lines changed
-- so you just skim over it quickly and decide that it's probably fine. Philipp
-	knows what he's doing, right?
-- So you give it the thumbs up and finally call it a day
-- Two hours later production is burning.
-
-This is what I call a *pseudo review*.
-You looked at the changes, but you did not really try to properly understand
-what's going on.
-
----
-
-## How can we fix this?  
-
-Note:
-How can we support our reviewer?
-
----
-
-## Provide context!
-
-Note:
-How can we provide context?
-
----
-
-## Commit history!
-
-Note:
-So all we need to do is to separate our changes into self-contained commits.
-Sounds easy, right?
-
-Turns out creating isolated commits with well defined boundaries, which also
-transport the intentions behind your changes, is hard.
+- Your commit history is a vehicle to transport context for your changes.
+- The changes themselves represent the "what", whereas the commit history represents the *why*
+- Context can be helpful
+	- for your future self (if you have to debug a bug that is 3 months old)
+	- and of course in code reviews
+		- providing good context will speed up reviews a lot
+		- this makes you more efficient as a team
 
 Side note_: commit messages are one key aspect of a good commit history, but I
 will not talk about how to write good commit messages today. Fawad already
 covered this topic extensively in his tech talk, so please check it out!
 
-For me this turned out to be a challenge, because I usually only start to get an
-idea of good commit boundaries *after* I'm done writing most of the code.
-
-Let's have a look at an example workflow of fixing a bug.
-
-**NEXT SLIDE**
+- Turns out providing good context with your commit history is hard.
+- Why? Let's have a look at a potential workflow of fixing a bug
 
 ---
 
@@ -102,10 +76,6 @@ Note:
 	 before.
 3. Then you find the bug and manage to fix it.
 
-Done, right?
-
-**NEXT SLIDE**
-
 ----
 
 6. Damn, tests failing because of my refactoring..
@@ -119,7 +89,6 @@ Done, right?
 	$ git commit -m “Fix bug”
 	$ git push
 	```
-10. Review please 👍
 <!-- .element: class="fragment" data-fragment-index="3" -->
 
 Note:
@@ -128,8 +97,6 @@ Note:
 3. Finally, you commit your changes, push and request a review from your colleague.
 
 And here's the problem..
-
-**NEXT SLIDE**
 
 ---
 
@@ -151,20 +118,20 @@ boundaries?
 
 <img class="fragment" width="700" src="img/ga-3.png">
 
-<img class="fragment" width="700" src="img/gapa-1.png">
-
 <img class="fragment" width="700" src="img/gapa-2.png">
 
 <img class="fragment" width="700" src="img/gapa-3.png">
 
 <img class="fragment" width="700" src="img/gapa-4.png">
 
+
 </div>
 
 Notes:
 - Let's say we have four files.
 - Instead of staging all changes, we could stage single files.  
-- But what if a commit should span different parts of multiple files?
+- But this is also very limitting
+- What if a commit should span different parts of multiple files?
 
 ---
 
@@ -172,13 +139,16 @@ Notes:
 *git add --patch*
 
 Note:
-`--patch` to the rescue!
+
+- Git breaks down your changes into so called "hunks" 
+- and lets you interactively decide which parts of your changes you want to add to the index.
+- This gives you a chance to review the difference before adding modified contents to the index.
+
+So let me show you how this works.
 
 ---
 
-<img width="800" src="img/hunk-staging.png">
-
----
+<!-- .element: data-visibility="hidden" -->
 
 ```diff[]
 $ git add --patch
@@ -196,9 +166,17 @@ $ git add --patch
 
 ```
 
+Note:
+Git splits up your changes into so called "hunks" and asks you what you want to do with it.
+
+This gives the user a chance to review the difference before adding modified
+contents to the index.
+
 ---
 
-```diff[1|2-12|12]
+<!-- .element: data-visibility="hidden" -->
+
+```diff[2-12|12]
 $ git add --patch
 diff --git a/talk.py b/talk.py
 index c7e0374..585dcd6 100644
@@ -214,6 +192,8 @@ index c7e0374..585dcd6 100644
 ```
 
 ----
+
+<!-- .element: data-visibility="hidden" -->
 
 ```shell[|1|2|6]
 y - stage this hunk
@@ -260,10 +240,12 @@ Among other options, you can for example say:
 ```text
 $ git add --patch
 ```
+4. Practice 1. - 3.
+<!-- .element: class="fragment" -->
+5. Commit early, commit often
+<!-- .element: class="fragment" -->
 
 ---
-
-<h2 class="fragment" data-fragment-index="2">Commit clutter</h2>
 
 <div class="r-stack">
 
@@ -282,9 +264,9 @@ d28ba13 Fix bug
 b4a6748 Extract method
 36962d4 Rename variable
 ```
-<!-- .element: class="fragment" data-fragment-index="1" -->
+<!-- .element: class="fragment" -->
 
-<span class="fragment" data-fragment-index="2" style="font-size: 120px;">🤔</span>
+<span class="fragment" style="font-size: 120px;">🤔</span>
 </div>
 
 ---
@@ -358,7 +340,7 @@ a9c4c48 Fix bug
 ﰬ  
 
 ```text[]
-26550fe (HEAD -> master) Fix bug
+26550fe (HEAD -> bugfix) Fix bug
 73a2261 Refactor applying the boyscout rule
    |
    +-------------------------------------+
@@ -389,9 +371,9 @@ Here we have just two commits:
 2. and the other one for refactoring, where we keep the information about each
 	 refactoring in the commit message
 
-So how do we get there? **NEXT SLIDE**
-
 ---
+
+<!-- .element: data-visibility="hidden" -->
 
 <div style="font-size: smaller;">
 
@@ -428,6 +410,7 @@ Note:
 
 ---
 
+<!-- .element: data-visibility="hidden" -->
 <div style="font-size: smaller;">
 
 ```
@@ -460,6 +443,7 @@ First action: reording commits
 
 ---
 
+<!-- .element: data-visibility="hidden" -->
 <div style="font-size: smaller;">
 
 ```
@@ -489,6 +473,7 @@ pick a9c4c48 Fix bug
 
 ---
 
+<!-- .element: data-visibility="hidden" -->
 <div style="font-size: smaller;">
 
 ```
@@ -524,6 +509,7 @@ Note:
 
 ---
 
+<!-- .element: data-visibility="hidden" -->
 <div style="font-size: smaller;">
 
 ```
@@ -559,6 +545,7 @@ Note:
 
 ---
 
+<!-- .element: data-visibility="hidden" -->
 <div style="font-size: smaller;">
 
 ```
@@ -594,6 +581,7 @@ Note:
 
 ---
 
+<!-- .element: data-visibility="hidden" -->
 <div style="font-size: smaller;">
 
 ```
@@ -629,6 +617,7 @@ Note:
 
 ---
 
+<!-- .element: data-visibility="hidden" -->
 <div style="font-size: smaller;">
 
 ```
@@ -664,6 +653,7 @@ Note:
 
 ---
 
+<!-- .element: data-visibility="hidden" -->
 <div style="font-size: smaller;">
 
 ```bash
@@ -695,6 +685,7 @@ Inline function
 
 ---
 
+<!-- .element: data-visibility="hidden" -->
 <div style="font-size: smaller;">
 
 ```bash
@@ -726,34 +717,96 @@ Refactor applying the boyscout rule
 
 ---
 
+🥳*
+
+<span style="font-size: smaller;">
+
+
 ```text
 $ git log --oneline
-26550fe (HEAD -> master) Fix bug
+26550fe (HEAD -> bugfix) Fix bug
 73a2261 Refactor applying the boyscout rule
 
 ```
 ```text
 $ git log 73a2261
 
-  Refactor applying the boyscout rule 
-  																		
-  - Extract method                    
-  - Inline function                   
-  - Move class into separate module   
-  - Rename variable                   
-  - Fix failing tests                 
+  Refactor applying the boyscout rule
+
+  - Extract method
+  - Inline function
+  - Move class into separate module
+  - Rename variable
+  - Fix failing tests
 ```
 
-Note:
-Note that you might run into conflicts during an interactive rebase operation.
-I won't cover how to solve conflicts in this talk.
+</span>
 
 ---
 
-## Recap
+#### \* merge conflicts
 
-Note:
-What have we learned today?
+<span style="font-size: smaller;">
+
+<div class="fragment">
+
+Resolve conflicts manually and
+```text
+$ git rebase --continue
+```
+
+</div>
+
+<div class="fragment">
+
+..or get out
+```text
+$ git rebase --abort
+```
+
+</div>
+
+</span>
+
+---
+
+## Workflow recap
+
+1. Commit early, commit often  
+	 ..or --patch
+<!-- .element: class="fragment" -->
+3. Revisit your commit boundaries
+<!-- .element: class="fragment" -->
+4. Reshape history
+<!-- .element: class="fragment" -->
+```text
+$ git rebase -i
+```
+5. Publish
+<!-- .element: class="fragment" -->
+```text
+$ git push
+```
+
+---
+
+<img class="fragment" data-fragment-index="1" src="img/refactoring.png">
+
+<div style="font-size: smaller;">
+
+...**small steps are the key to moving quickly**,  
+particularly when working with difficult code.
+
+<span style="font-size: small;">Fowler, 2019, p. 21</span>
+
+</div>
+
+<!-- .element: class="fragment" data-fragment-index="1" -->
+
+Notes:
+- I have to admit, these workflows are nothing new.
+- People are using these for quite some time already.
+- I picked it up from this book.
 
 ---
 
@@ -768,6 +821,15 @@ What have we learned today?
 - [The wonder of good commit messages (Fawad Malik, Tech Talks Vol. 4, 09.04.2021)](https://docs.google.com/presentation/d/1WYYi_J9zUfh2YupIiAfMGt82HchhWW_twqNjmgVTf8g/edit#slide=id.ga635aaf815_0_0)
  
 </div>
+
+---
+
+
+## Questions?
+
+[philipp.albrecht@momox.biz](mailto:philipp.albrecht@momox.biz)
+
+Slack @lens
 
 <style>
 .element {
