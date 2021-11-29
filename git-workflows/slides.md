@@ -50,8 +50,11 @@ Side note_: commit messages are one key aspect of a good commit history, but I
 will not talk about how to write good commit messages today. Fawad already
 covered this topic extensively in his tech talk, so please check it out!
 
-- Turns out providing good context with your commit history is hard.
-- Why? Let's have a look at a potential workflow of fixing a bug
+- When I was new to git, creating meaningful self-contained commits was really
+	hard for me.
+- The point, where I was ready to commit my work, usually was *after* I've done
+	all my changes.
+- Let's look at an example of fixing a but to show you how this might look like.
 
 ---
 
@@ -103,8 +106,11 @@ And here's the problem..
 ![not cool bro](img/not-cool-bro.png)
 
 Note:
-At this point, how can we create meaningful, isolated commits with well defined
-boundaries? 
+- At this point, my work tree is full of changes.
+- Looking back, I realize that besides fixing the bug, I also did some refactoring.
+- So I want to separate refactoring from the actual bugfix in my commits.
+- But how?
+- We can do better than git add .
 
 ---
 
@@ -131,6 +137,8 @@ Notes:
 - Let's say we have four files.
 - Instead of staging all changes, we could stage single files.  
 - But this is also very limitting
+ 
+- What if I want to only commit some parts of a single file?
 - What if a commit should span different parts of multiple files?
 
 ---
