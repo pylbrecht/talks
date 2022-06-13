@@ -1,5 +1,9 @@
 # CQRS
 
+To build up to "what" CQRS is, I want to build up context with our warehouse
+project as an example:
+- introduce models and their relationships (article, inbound order)
+
 ## What is CQRS?
 Command Query Responsibility Segregation
 
