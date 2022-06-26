@@ -35,3 +35,22 @@ https://media1.giphy.com/media/t7AI4TmE0PYI/giphy.gif
 Note:
 - this is very boring
 - instead let's take a step back and build up some context to better explain wahat CQRS is
+
+---
+
+## reads | writes
+
+---
+
+![single model](./images/single-model.png)
+
+https://martinfowler.com/bliki/images/cqrs/single-model.png
+<!-- .element: style="font-size: small;" -->
+
+---
+
+![cqrs](./images/cqrs.png)
+
+https://martinfowler.com/bliki/images/cqrs/cqrs.png
+<!-- .element: style="font-size: small;" -->
+
