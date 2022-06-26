@@ -54,3 +54,11 @@ https://martinfowler.com/bliki/images/cqrs/single-model.png
 https://martinfowler.com/bliki/images/cqrs/cqrs.png
 <!-- .element: style="font-size: small;" -->
 
+---
+
+## Resources
+
+---
+
+- [Martin Fowler: CQRS](https://martinfowler.com/bliki/CQRS.html)
+
