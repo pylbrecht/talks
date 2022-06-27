@@ -38,7 +38,33 @@ Note:
 
 ---
 
-## reads | writes
+```text
++-------+               +----+
+|       | <-- reads --- |    |
+| model |               | DB |
+|       | -- writes --> |    |
++-------+               +----+
+```
+
+---
+
+```text
++------------+                +---+
+|            |                |   |
+| read model | <-- reads ---- |   |
+|            |                |   |
++------------+                |    |
+                              | DB |
++-------------+               |    |
+|             |               |   |
+| write model | -- writes --> |   |
+|             |               |   |
++-------------+               +---+
+```
+
+---
+
+## read model <-> write model
 
 ---
 
@@ -53,6 +79,14 @@ https://martinfowler.com/bliki/images/cqrs/single-model.png
 
 https://martinfowler.com/bliki/images/cqrs/cqrs.png
 <!-- .element: style="font-size: small;" -->
+
+---
+
+| Reads        | Writes                             |
+| -----        | ------                             |
+| simple       | complex business logic             |
+| can be stale | must be transactionally consistent |
+
 
 ---
 
